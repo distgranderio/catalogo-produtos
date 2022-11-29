@@ -1,9 +1,9 @@
-function carregarDados3m() {
-  fetch('/catalogo/produtos3m.json')
+function carregarDadosacessorios() {
+  fetch('/catalogo/acessorio.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutos3m(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.availability);
+              preencherProdutosacessorios(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.availability);
           }
 
       })
@@ -11,7 +11,7 @@ function carregarDados3m() {
 }
 
 
-function preencherProdutos3m(id, title, description, link, image_link) {
+function preencherProdutosacessorios(id, title, description, link, image_link) {
 
   var card = document.createElement("div");
   // card.style.width = "18rem";
@@ -31,7 +31,7 @@ function preencherProdutos3m(id, title, description, link, image_link) {
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -50,16 +50,16 @@ function preencherProdutos3m(id, title, description, link, image_link) {
   
  
 
-  document.querySelector(".produtos3m").appendChild(card);
+  document.querySelector(".acessorios").appendChild(card);
 }
 
 
-function carregarDados2001() {
-  fetch('/catalogo/produtos2001.json')
+function carregarDadosferramentas() {
+  fetch('/catalogo/ferramentas.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutos2001(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY);
+              preencherProdutosferramentas(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY);
           }
 
       })
@@ -67,7 +67,7 @@ function carregarDados2001() {
 }
 
 
-function preencherProdutos2001(id, title, description, link, image_link, body) {
+function preencherProdutosferramentas(id, title, description, link, image_link, body) {
 
   var card = document.createElement("div");
   // card.style.width = "18rem";
@@ -84,14 +84,14 @@ function preencherProdutos2001(id, title, description, link, image_link, body) {
   var descricao = document.createElement("p");
   descricao.className = "card-text"
   if(description == "[object Object]"){
-    descricao.textContent = body.substring(0, 100) + "...";
+    descricao.textContent = body.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
     }else {
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -110,22 +110,22 @@ function preencherProdutos2001(id, title, description, link, image_link, body) {
   
  
 
-  document.querySelector(".produtos2001").appendChild(card);
+  document.querySelector(".ferramentas").appendChild(card);
 }
 
-function carregarDadosanjo() {
-  fetch('/catalogo/produtosanjo.json')
+function carregarDadoslubrificantes() {
+  fetch('/catalogo/lubrificantes.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutosanjo(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY);
+              preencherProdutoslubrificantes(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY);
           }
 
       })
 
 }
 
-function preencherProdutosanjo(id, title, description, link, image_link, abody, ) {
+function preencherProdutoslubrificantes(id, title, description, link, image_link, abody, ) {
   var card = document.createElement("div");
   // card.style.width = "18rem";
   // card.style.height = "0rem";
@@ -144,15 +144,15 @@ function preencherProdutosanjo(id, title, description, link, image_link, abody, 
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody//.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ")//.substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -171,22 +171,22 @@ function preencherProdutosanjo(id, title, description, link, image_link, abody, 
   
  
 
-  document.querySelector(".produtosanjo").appendChild(card);
+  document.querySelector(".lubrificantes").appendChild(card);
 }
 
-function carregarDadoscentral() {
-  fetch('/catalogo/produtoscentralsul.json')
+function carregarDadosmaquinas() {
+  fetch('/catalogo/maquinas.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutoscentral(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
+              preencherProdutosmaquinas(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
           }
 
       })
 
 }
 
-function preencherProdutoscentral(id, title, description, link, image_link, abody, ) {
+function preencherProdutosmaquinas(id, title, description, link, image_link, abody, ) {
   var card = document.createElement("div");
   // card.style.width = "18rem";
   // card.style.height = "0rem";
@@ -205,15 +205,15 @@ function preencherProdutoscentral(id, title, description, link, image_link, abod
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -232,21 +232,21 @@ function preencherProdutoscentral(id, title, description, link, image_link, abod
   
  
 
-  document.querySelector(".produtoscentral").appendChild(card);
+  document.querySelector(".maquinas").appendChild(card);
 }
-function carregarDadosbrastudo() {
-  fetch('/catalogo/brastudo.json')
+function carregarDadospolimento() {
+  fetch('/catalogo/polimento.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutosbrastudo(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
+              preencherProdutospolimento(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
           }
 
       })
 
 }
 
-function preencherProdutosbrastudo(id, title, description, link, image_link, abody, ) {
+function preencherProdutospolimento(id, title, description, link, image_link, abody, ) {
   var card = document.createElement("div");
   // card.style.width = "18rem";
   // card.style.height = "0rem";
@@ -265,15 +265,15 @@ function preencherProdutosbrastudo(id, title, description, link, image_link, abo
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -292,21 +292,21 @@ function preencherProdutosbrastudo(id, title, description, link, image_link, abo
   
  
 
-  document.querySelector(".produtosbrastudo").appendChild(card);
+  document.querySelector(".polimento").appendChild(card);
 }
-function carregarDadosaromacar() {
-  fetch('/catalogo/produtosaromacar.json')
+function carregarDadosrepintura() {
+  fetch('/catalogo/repintura.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutosaromacar(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
+              preencherProdutosrepintura(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
           }
 
       })
 
 }
 
-function preencherProdutosaromacar(id, title, description, link, image_link, abody, ) {
+function preencherProdutosrepintura(id, title, description, link, image_link, abody, ) {
   var card = document.createElement("div");
   // card.style.width = "18rem";
   // card.style.height = "0rem";
@@ -325,15 +325,15 @@ function preencherProdutosaromacar(id, title, description, link, image_link, abo
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -352,22 +352,22 @@ function preencherProdutosaromacar(id, title, description, link, image_link, abo
   
  
 
-  document.querySelector(".produtosaromacar").appendChild(card);
+  document.querySelector(".repintura").appendChild(card);
 }
 
-function carregarDadoscadillac() {
-  fetch('/catalogo/produtoscadillac.json')
+function carregarDadosskymix() {
+  fetch('/catalogo/skymix.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutoscadillac(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
+              preencherProdutosskymix(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
           }
 
       })
 
 }
 
-function preencherProdutoscadillac(id, title, description, link, image_link, abody, ) {
+function preencherProdutosskymix(id, title, description, link, image_link, abody, ) {
   var card = document.createElement("div");
   // card.style.width = "18rem";
   // card.style.height = "0rem";
@@ -386,15 +386,15 @@ function preencherProdutoscadillac(id, title, description, link, image_link, abo
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -413,21 +413,21 @@ function preencherProdutoscadillac(id, title, description, link, image_link, abo
   
  
 
-  document.querySelector(".produtoscadillac").appendChild(card);
+  document.querySelector(".skymix").appendChild(card);
 }
-function carregarDadosdiversos() {
-  fetch('/catalogo/produtosdiversos.json')
+function carregarDadostintas() {
+  fetch('/catalogo/tinta.json')
       .then((res) => res.json())
       .then((res) => {
           for (produto of res.rss.channel.item) {
-              preencherProdutosdiversos(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
+              preencherProdutostintas(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
           }
 
       })
 
 }
 
-function preencherProdutosdiversos(id, title, description, link, image_link, abody, ) {
+function preencherProdutostintas(id, title, description, link, image_link, abody, ) {
   var card = document.createElement("div");
   // card.style.width = "18rem";
   // card.style.height = "0rem";
@@ -446,15 +446,15 @@ function preencherProdutosdiversos(id, title, description, link, image_link, abo
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -473,68 +473,9 @@ function preencherProdutosdiversos(id, title, description, link, image_link, abo
   
  
 
-  document.querySelector(".produtosdiversos").appendChild(card);
-}
-function carregarDadosautoamerica() {
-  fetch('/catalogo/produtosautoamerica.json')
-      .then((res) => res.json())
-      .then((res) => {
-          for (produto of res.rss.channel.item) {
-              preencherProdutosautoamerica(produto.id, produto.title, produto.description, produto.link, produto.image_link, produto.description.BODY );
-          }
-
-      })
-
+  document.querySelector(".tintas").appendChild(card);
 }
 
-function preencherProdutosautoamerica(id, title, description, link, image_link, abody, ) {
-  var card = document.createElement("div");
-  // card.style.width = "18rem";
-  // card.style.height = "0rem";
-  card.className = "card";
-  var imagem = document.createElement("img");
-  imagem.src = image_link;
-  imagem.className = "card-img-top";
-  var card1 = document.createElement("div");
-  card1.className = "card-body";
-  var titulo = document.createElement("h5");
-  titulo.className = "card-title";
-  titulo.textContent = title;
-  var descricao = document.createElement("p");
-  descricao.className = "card-text"
-  if(description == "[object Object]"){
-    if(abody == "[object Object]"){
-      descricao.textContent ="...";
-    }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
-    }
-  }else{
-  descricao.textContent = description.substring(0, 100) + "...";
-  }
-  var botao = document.createElement("a");
-  botao.href = link;
-  botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
-  botao.target = "_blank"
-  var codigo = document.createElement("p");
-  codigo.textContent = "cód." + id.replace("GR", " ");
-  codigo.style.marginRight = "10px";
-  var espaco = document.createElement("div");
-  espaco.style.display = "flex";
-  espaco.style.alignSelf = "center";
-
-  card.appendChild(imagem);
-  card.appendChild(card1);
-  card.appendChild(titulo);
-  card.appendChild(descricao);
-  espaco.appendChild(codigo);
-  espaco.appendChild(botao);
-  card.appendChild(espaco)
-  
- 
-
-  document.querySelector(".produtosautoamerica").appendChild(card);
-}
 function carregarDadoslimpeza() {
   fetch('/catalogo/limpeza.json')
       .then((res) => res.json())
@@ -566,15 +507,15 @@ function preencherProdutoslimpeza(id, title, description, link, image_link, abod
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;P&gt;&lt;SPAN initial?? text-decoration-color: initial; text-decoration-style: text-decoration-thickness: 0px; -webkit-text-stroke-width: normal; font-variant-caps: font-variant-ligatures: TEXT-INDENT: rgb(255,255,255); BACKGROUND-COLOR: LETTER-SPACING: !important; inline DISPLAY: 2; WIDOWS: ORPHANS: FONT-STYLE: rgb(102,102,102); COLOR: 400; FONT-WEIGHT: none; FLOAT: TEXT-TRANSFORM: WORD-SPACING: WHITE-SPACE: sans-serif; Arial, Helvetica, Neue?, ?Helvetica FONT-FAMILY: 14px; FONT-SIZE:&gt;MULTICAR Limpa Tudo Aroma Car &lt;BR&gt;", " ").replace("&lt;BR&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;/BODY&gt;", " ").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;P&gt;&lt;SPAN initial?? text-decoration-color: initial; text-decoration-style: text-decoration-thickness: 0px; -webkit-text-stroke-width: normal; font-variant-caps: font-variant-ligatures: TEXT-INDENT: rgb(255,255,255); BACKGROUND-COLOR: LETTER-SPACING: !important; inline DISPLAY: 2; WIDOWS: ORPHANS: FONT-STYLE: rgb(102,102,102); COLOR: 400; FONT-WEIGHT: none; FLOAT: TEXT-TRANSFORM: WORD-SPACING: WHITE-SPACE: sans-serif; Arial, Helvetica, Neue?, ?Helvetica FONT-FAMILY: 14px; FONT-SIZE:&gt;MULTICAR Limpa Tudo Aroma Car &lt;BR&gt;", " ").replace("&lt;BR&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;/BODY&gt;", " ").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
-  botao.textContent = "ABRIR SITE";
+  botao.textContent = "ABRIR NO SITE";
   botao.target = "_blank"
   var codigo = document.createElement("p");
   codigo.textContent = "cód." + id.replace("GR", " ");
@@ -596,15 +537,14 @@ function preencherProdutoslimpeza(id, title, description, link, image_link, abod
   document.querySelector(".produtoslimpeza").appendChild(card);
 }
 carregarDadoslimpeza();
-carregarDados3m();
-carregarDados2001();
-carregarDadosanjo();
-carregarDadoscentral();
-carregarDadosbrastudo();
-carregarDadosaromacar();
-carregarDadoscadillac();
-carregarDadosdiversos();
-carregarDadosautoamerica();
+carregarDadospolimento();
+carregarDadosrepintura();
+carregarDadostintas();
+carregarDadosskymix();
+carregarDadosferramentas();
+carregarDadosacessorios();
+carregarDadosmaquinas();
+carregarDadoslubrificantes();
 
 
 // fetch('/catalogo/produtos.json')
