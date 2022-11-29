@@ -27,7 +27,7 @@ function preencherProdutosacessorios(id, title, description, link, image_link) {
   titulo.textContent = title;
   var descricao = document.createElement("p");
   descricao.className = "card-text"
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.innerHTML = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   var botao = document.createElement("a");
   botao.href = link;
   botao.className = "btn btn-success";
@@ -84,9 +84,9 @@ function preencherProdutosferramentas(id, title, description, link, image_link, 
   var descricao = document.createElement("p");
   descricao.className = "card-text"
   if(description == "[object Object]"){
-    descricao.textContent = body.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+    descricao.textContent = body.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }else {
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -144,10 +144,10 @@ function preencherProdutoslubrificantes(id, title, description, link, image_link
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ")//.substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "")//.substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -205,10 +205,10 @@ function preencherProdutosmaquinas(id, title, description, link, image_link, abo
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -265,10 +265,10 @@ function preencherProdutospolimento(id, title, description, link, image_link, ab
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -325,10 +325,10 @@ function preencherProdutosrepintura(id, title, description, link, image_link, ab
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -386,10 +386,10 @@ function preencherProdutosskymix(id, title, description, link, image_link, abody
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -446,10 +446,10 @@ function preencherProdutostintas(id, title, description, link, image_link, abody
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
@@ -507,10 +507,10 @@ function preencherProdutoslimpeza(id, title, description, link, image_link, abod
     if(abody == "[object Object]"){
       descricao.textContent ="...";
     }else{
-      descricao.textContent = abody.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;P&gt;&lt;SPAN initial?? text-decoration-color: initial; text-decoration-style: text-decoration-thickness: 0px; -webkit-text-stroke-width: normal; font-variant-caps: font-variant-ligatures: TEXT-INDENT: rgb(255,255,255); BACKGROUND-COLOR: LETTER-SPACING: !important; inline DISPLAY: 2; WIDOWS: ORPHANS: FONT-STYLE: rgb(102,102,102); COLOR: 400; FONT-WEIGHT: none; FLOAT: TEXT-TRANSFORM: WORD-SPACING: WHITE-SPACE: sans-serif; Arial, Helvetica, Neue?, ?Helvetica FONT-FAMILY: 14px; FONT-SIZE:&gt;MULTICAR Limpa Tudo Aroma Car &lt;BR&gt;", " ").replace("&lt;BR&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;/BODY&gt;", " ").substring(0, 100) + "...";
+      descricao.textContent = abody.replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
     }
   }else{
-  descricao.textContent = description.replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;P&gt;&lt;SPAN initial?? text-decoration-color: initial; text-decoration-style: text-decoration-thickness: 0px; -webkit-text-stroke-width: normal; font-variant-caps: font-variant-ligatures: TEXT-INDENT: rgb(255,255,255); BACKGROUND-COLOR: LETTER-SPACING: !important; inline DISPLAY: 2; WIDOWS: ORPHANS: FONT-STYLE: rgb(102,102,102); COLOR: 400; FONT-WEIGHT: none; FLOAT: TEXT-TRANSFORM: WORD-SPACING: WHITE-SPACE: sans-serif; Arial, Helvetica, Neue?, ?Helvetica FONT-FAMILY: 14px; FONT-SIZE:&gt;MULTICAR Limpa Tudo Aroma Car &lt;BR&gt;", " ").replace("&lt;BR&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;/BODY&gt;", " ").substring(0, 100) + "...";
+  descricao.textContent = description.replace("&lt;BODY text=#000000 bgColor=#ffffff&gt;", " ").replace("&lt;BODY text=#a0a0a0 bgColor=#f0f0f0&gt;", " ").replace("&lt;/P&gt; &lt;P&gt;", "").replace("&lt;/P&gt; &lt;P&gt;", "").substring(0, 100) + "...";
   }
   var botao = document.createElement("a");
   botao.href = link;
