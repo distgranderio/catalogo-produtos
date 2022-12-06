@@ -62,6 +62,7 @@ img{
     position: fixed;
     margin-left: 95vw;
     margin-top: 90vh;
+    z-index: 9999;
 }
 @keyframes moving1 {
     0% {
@@ -72,5 +73,15 @@ img{
     }
     100% {
       transform: translateY(0px);
+    }
+  }
+  @media screen and (max-width: 500px) {
+
+    .bi-arrow-up-circle-fill{
+        margin-left: 80vw;
+        margin-top: 85vh;
+    }
+    .foto-principal{
+        max-width: 70vw!important;
     }
   }
